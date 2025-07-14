@@ -67,8 +67,8 @@
             :modules="swiperModules"
             :slides-per-view="1"
             :space-between="30"
-            :autoplay="{ delay: 3000 }"
-            :pagination="{ clickable: true }"
+            :autoplay="autoplayOptions as any"
+            :pagination="paginationOptions as any"
             class="testimonials-swiper"
         >
           <swiper-slide v-for="testimonial in testimonials" :key="testimonial.name">
@@ -141,11 +141,19 @@ import { ref, onMounted } from 'vue';
 import { Platform, Share, ChatDotRound, Position } from '@element-plus/icons-vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay } from 'swiper/modules';
+import type { PaginationOptions, AutoplayOptions } from 'swiper/types';
 import imgMain from '@/assets/homePage/img_main.jpg'
 import imgRgznjjfa from '@/assets/homePage/img_rgznjjfa.jpg'
 import imgYjsfw from '@/assets/homePage/img_yjsfw.jpg'
 import imgSjfxpt from '@/assets/homePage/img_sjfxpt.jpg'
 import * as echarts from 'echarts';
+const autoplayOptions: AutoplayOptions = {
+  delay: 3000,
+};
+const paginationOptions: PaginationOptions = {
+  clickable: true,
+};
+
 const swiperModules = [Pagination, Autoplay];
 const heroImage = imgMain;
 const navItems = ['首页', '关于我们', '服务项目', '案例展示', '新闻资讯'];
