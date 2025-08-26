@@ -17,7 +17,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 8080,
+    port: 8081,
     proxy: {
       '/modbus': {
         target: 'http://192.168.120.66:8081', // 目标服务器地址
